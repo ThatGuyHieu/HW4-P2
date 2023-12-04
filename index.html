@@ -1,0 +1,137 @@
+/*
+Brandon Nguyen
+Brandon_Nguyen4@student.uml.edu
+*/
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multiplication Table</title>
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+
+<body id="body">
+    <div id="header" class="container-fluid">
+        <h2>MULTIPLICATION TABLE</h2>
+    </div>
+
+    <!-- Main content -->
+    <div id="maindiv" class="container">
+        <div id="row1" class="row">
+            <!-- Column Form -->
+            <div id="colform" class="col-md-3">
+                <form id="form">
+                    <!-- Minimum Column Value -->
+                    <label>Minimum Column Value:</label><br>
+                    <input class="inputs" name="minc" id="minc" type="text" placeholder="Enter a number" /><br>
+                    <div class="background-slider">
+                        <div id="minCSlider"></div>
+                    </div><br>
+
+                    <!-- Maximum Column Value -->
+                    <label>Maximum Column Value:</label><br>
+                    <input class="inputs" name="maxc" id="maxc" type="text" placeholder="Enter a number" /><br>
+                    <div class="background-slider">
+                        <div id="maxCSlider"></div>
+                    </div><br>
+
+                    <!-- Minimum Row Value -->
+                    <label>Minimum Row Value:</label><br>
+                    <input class="inputs" name="minr" id="minr" type="text" placeholder="Enter a number" /><br>
+                    <div class="background-slider">
+                        <div id="minRSlider"></div>
+                    </div><br>
+
+                    <!-- Maximum Row Value -->
+                    <label>Maximum Row Value:</label><br>
+                    <input class="inputs" name="maxr" id="maxr" type="text" placeholder="Enter a number" /><br>
+                    <div class="background-slider">
+                        <div id="maxRSlider"></div>
+                    </div><br>
+
+                    <!-- Submit and Reset Buttons -->
+                    <button name="submit" class="btn btn-primary mt-2" id="submit" type="submit">Save Table</button>
+                    <button name="reset" class="btn btn-primary mt-2" id="clear-btn" type="button"> Reset the Slider</button>
+                </form>
+            </div>
+
+            <!--Table -->
+            <div id="coltable" class="col-md-9">
+                <button class="btn btn-primary mt-2" id="btn-delete">Delete Selected Tabs</button>
+                <ul>
+                    <li id="mainli"><a id="maina" href="#maintab"> Current Tab</a></li>
+                </ul>
+                <div id="maintab">
+                    <table id="table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- Include your new script file -->
+    <script src="js/script.js"></script>
+    <script>
+      $(document).ready(function () {
+          // Initialize the jQuery Validation plugin
+          $("#multiplicationForm").validate({
+              rules: {
+                  minc: {
+                      required: true,
+                      number: true,
+                  },
+                  maxc: {
+                      required: true,
+                      number: true,
+                  },
+                  minr: {
+                      required: true,
+                      number: true,
+                  },
+                  maxr: {
+                      required: true,
+                      number: true,
+                  },
+              },
+              messages: {
+                  minc: {
+                      required: "Please enter a value for Minimum Column",
+                      number: "Please enter a valid number",
+                  },
+                  maxc: {
+                      required: "Please enter a value for Maximum Column",
+                      number: "Please enter a valid number",
+                  },
+                  minr: {
+                      required: "Please enter a value for Minimum Row",
+                      number: "Please enter a valid number",
+                  },
+                  maxr: {
+                      required: "Please enter a value for Maximum Row",
+                      number: "Please enter a valid number",
+                  },
+              },
+          });
+      });
+  </script>
+</body>
+
+</html>
